@@ -1,4 +1,4 @@
-package com.microlife.software.a24hr_mt;
+package com.microlife.software.a24hr_mt_nPicker;
 
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
@@ -29,17 +29,17 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.microlife.software.a24hr_mt_nPicker.R;
 import com.viewpagerindicator.CirclePageIndicator;
 import com.viewpagerindicator.PageIndicator;
 
 import java.io.BufferedWriter;
-import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.microlife.software.a24hr_mt.BluetoothLeService.ACTION_ENABLE;
+import static com.microlife.software.a24hr_mt_nPicker.BluetoothLeService.ACTION_ENABLE;
 import static java.lang.String.format;
 
 public class MainActivity extends AppCompatActivity implements fragmentBady.updateTempListener
@@ -623,7 +623,7 @@ public class MainActivity extends AppCompatActivity implements fragmentBady.upda
         for (int i=0; i<5; i++)
         {
             //tmpStr += String.valueOf(Utils.byteToUnsignedInt(data[6 + i]));
-            tmpStr += String.format("%02d", Utils.byteToUnsignedInt(data[6 + i]));
+            tmpStr += format("%02d", Utils.byteToUnsignedInt(data[6 + i]));
         }
 
         Log.d(TAG, "dRecord Date/Time : " + tmpStr);

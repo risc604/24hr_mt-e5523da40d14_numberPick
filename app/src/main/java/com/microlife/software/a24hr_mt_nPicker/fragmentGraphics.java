@@ -1,4 +1,4 @@
-package com.microlife.software.a24hr_mt;
+package com.microlife.software.a24hr_mt_nPicker;
 
 import android.graphics.Color;
 import android.graphics.DashPathEffect;
@@ -15,7 +15,6 @@ import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -37,6 +36,7 @@ import com.github.mikephil.charting.listener.ChartTouchListener;
 import com.github.mikephil.charting.listener.OnChartGestureListener;
 import com.github.mikephil.charting.listener.OnChartValueSelectedListener;
 import com.github.mikephil.charting.utils.*;
+import com.microlife.software.a24hr_mt_nPicker.R;
 
 import java.io.BufferedReader;
 import java.io.File;

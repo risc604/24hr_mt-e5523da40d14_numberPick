@@ -1,4 +1,4 @@
-package com.microlife.software.a24hr_mt;
+package com.microlife.software.a24hr_mt_nPicker;
 
 import android.app.Dialog;
 import android.os.Bundle;
@@ -10,6 +10,8 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.NumberPicker;
 import android.widget.TextView;
+
+import com.microlife.software.a24hr_mt_nPicker.R;
 
 /**
  * Created by tomcat on 2016/9/28.

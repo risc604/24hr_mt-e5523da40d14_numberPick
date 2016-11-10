@@ -1,4 +1,4 @@
-package com.microlife.software.a24hr_mt;
+package com.microlife.software.a24hr_mt_nPicker;
 
 import android.Manifest;
 import android.app.Activity;
@@ -15,6 +15,8 @@ import android.util.Log;
 import android.view.View;
 import android.widget.ProgressBar;
 import android.widget.Toast;
+
+import com.microlife.software.a24hr_mt_nPicker.R;
 
 public class LoadingActivity extends Activity
 {

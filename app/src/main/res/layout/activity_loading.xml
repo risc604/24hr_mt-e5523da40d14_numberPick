@@ -8,7 +8,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context=".LoadingActivity"
+    tools:context="com.microlife.software.a24hr_mt_nPicker.LoadingActivity"
     android:background="@color/background_material_light">
 
     <ImageView

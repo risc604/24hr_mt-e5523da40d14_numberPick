@@ -1,4 +1,4 @@
-package com.microlife.tomcat.a24hr_mt;
+package com.microlife.software.a24hr_mt_nPicker;
 
 import android.app.Application;
 import android.test.ApplicationTestCase;
