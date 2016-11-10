@@ -22,8 +22,9 @@
         android:background="@color/vpi__bright_foreground_disabled_holo_light"
         android:layout_weight="1"
         android:layout_alignParentStart="true"
-        android:layout_below="@+id/ivEmail"
-        android:layout_height="340dp">
+        android:layout_height="340dp"
+        android:layout_alignParentBottom="true"
+        android:layout_below="@+id/ivEmail">
     </com.github.mikephil.charting.charts.LineChart>
 
     <TextView
@@ -33,15 +34,6 @@
         android:id="@+id/tvdayInfo"
         android:textAlignment="viewStart" android:textColor="@color/vpi__background_holo_dark"
         android:layout_alignParentTop="true" android:layout_alignParentStart="true"/>
-
-    <ImageButton
-        android:layout_width="match_parent"
-        android:id="@+id/imBtnDel" android:elevation="0dp"
-        tools:elevation="1dp"
-        app:srcCompat="@drawable/button_delete"
-        android:layout_height="100dp"
-        android:layout_below="@+id/graphChart"
-        android:layout_alignParentStart="true"/>
 
 
 </RelativeLayout>

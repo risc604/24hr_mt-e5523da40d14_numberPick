@@ -12,22 +12,22 @@
 
     <Button
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
         android:id="@+id/loginbutton"
         android:layout_alignParentBottom="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentStart="true"
         android:background="@color/colorPrimary"
         android:text="@string/create_your_profile"
-        android:textStyle="normal"/>
+        android:textStyle="normal"
+        android:layout_height="70dp"/>
 
     <ImageView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
         android:id="@+id/imageView2"
         android:background="@drawable/login_image"
         android:layout_alignParentTop="true"
         android:contentDescription=""
         android:layout_alignParentStart="true"
-        android:layout_above="@+id/loginbutton"/>
+        android:layout_above="@+id/loginbutton"
+        android:layout_height="380dp"/>
 </RelativeLayout>

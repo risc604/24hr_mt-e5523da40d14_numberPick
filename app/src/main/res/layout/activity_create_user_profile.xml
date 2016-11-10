@@ -42,7 +42,7 @@
         android:id="@+id/etPFBirthday"
         android:layout_below="@+id/etPFName"
         android:layout_alignStart="@+id/etPFName"
-        android:text="1 Jan 2016"
+        android:text="1 Jan  2016"
         android:textColor="?attr/colorPrimaryDark"/>
 
     <TextView

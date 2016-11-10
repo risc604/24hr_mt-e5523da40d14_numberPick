@@ -61,7 +61,7 @@ public class fragmentGraphics extends PagerFragment implements
     ImageView   imgEmail;
     TextView    tvDateInfo;
     View        mViewRoot;
-    ImageButton imgBtnDelete;
+    //ImageButton imgBtnDelete;
     LineChart   mChart;
 
     //BufferedReader  logReader;
@@ -88,7 +88,7 @@ public class fragmentGraphics extends PagerFragment implements
         tvDateInfo = (TextView) root.findViewById(R.id.tvdayInfo);
         imgEmail = (ImageView) root.findViewById(R.id.ivEmail);
         mChart = (LineChart) root.findViewById(R.id.graphChart);
-        imgBtnDelete = (ImageButton) root.findViewById(R.id.imBtnDel);
+        //imgBtnDelete = (ImageButton) root.findViewById(R.id.imBtnDel);
     }
 
     @Override
@@ -880,13 +880,16 @@ public class fragmentGraphics extends PagerFragment implements
 
         LineDataSet set1;
 
-        if (mChart.getData() != null &&
-                mChart.getData().getDataSetCount() > 0) {
+        if ((mChart.getData() != null) &&
+            (mChart.getData().getDataSetCount() > 0) )
+        {
             set1 = (LineDataSet)mChart.getData().getDataSetByIndex(0);
             set1.setValues(values);
             mChart.getData().notifyDataChanged();
             mChart.notifyDataSetChanged();
-        } else {
+        }
+        else
+        {
             // create a dataset and give it a type
             set1 = new LineDataSet(values, "DataSet 1");
 
