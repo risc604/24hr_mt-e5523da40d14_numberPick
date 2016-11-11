@@ -1,5 +1,7 @@
 package com.microlife.software.a24hr_mt_nPicker;
 
+import android.Manifest;
+import android.app.Activity;
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
 import android.bluetooth.BluetoothManager;
@@ -14,10 +16,12 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.ServiceConnection;
+import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.IBinder;
+import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
@@ -45,6 +49,11 @@ import static java.lang.String.format;
 public class MainActivity extends AppCompatActivity implements fragmentBady.updateTempListener
 {
     private final static String TAG = MainActivity.class.getSimpleName();
+
+    private static final int REQUEST_EXTERNAL_STORAGE = 1;
+    private static String[] PERMISSIONS_STORAGE = {
+            Manifest.permission.READ_EXTERNAL_STORAGE,
+            Manifest.permission.WRITE_EXTERNAL_STORAGE };
 
     public static final String EXTRAS_USER_NAME = "USER_NAME";
     public  BluetoothLeService  mBluetoothLeService;
@@ -304,6 +313,21 @@ public class MainActivity extends AppCompatActivity implements fragmentBady.upda
     {
     }
 
+    public static void verifyStoragePermissions(Activity activity)
+    {
+        // Check if we have write permission
+        int permission = ActivityCompat.checkSelfPermission(activity,
+                Manifest.permission.WRITE_EXTERNAL_STORAGE);
+
+        if (permission != PackageManager.PERMISSION_GRANTED)
+        {
+            // We don't have permission so prompt the user
+            ActivityCompat.requestPermissions(activity, PERMISSIONS_STORAGE,
+                    REQUEST_EXTERNAL_STORAGE);
+        }
+    }
+
+
     private void startScanDevice(boolean enable)
     {
         if (Build.VERSION.SDK_INT >= 21)
@@ -506,7 +530,8 @@ public class MainActivity extends AppCompatActivity implements fragmentBady.upda
     {
         int intVBat = (Utils.byteToUnsignedInt(rawData[7])+100);
         float vbat = ((float)intVBat / 100);
-        String tmp = (int)rawData[5] + "." + (int)rawData[6];
+        //String tmp = (int)rawData[5] + "." + (int)rawData[6];
+        String tmp = String.format("%02d.%02d", (int)rawData[5], (int)rawData[6]);
 
         setVBat(vbat);
         showTemperatureUI(tmp);
@@ -593,6 +618,7 @@ public class MainActivity extends AppCompatActivity implements fragmentBady.upda
 
     public void writeLogFile(byte[] data)
     {
+        verifyStoragePermissions(MainActivity.this);
         String fileName = Utils.shortFileName(".log");
         Log.d(TAG, "fileName: " + fileName);
 
