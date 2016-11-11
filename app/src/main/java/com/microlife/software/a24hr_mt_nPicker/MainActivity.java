@@ -65,7 +65,7 @@ public class MainActivity extends AppCompatActivity implements fragmentBady.upda
     private static final long   SCAN_PERIOD = (5*1000);
     private Handler             mHandler;
     //private final String        DEV_ADDRESS = "18:7A:93:03:51:01";
-    private final String        DEV_ADDRESS = "18:7A:93:03:A3:DE";
+    //private final String        DEV_ADDRESS = "18:7A:93:03:A3:DE";
     private final String        DEV_NAME = "Thermo 242";
     private String              deviceAddr;
     static float                vBatValue = 0.0f;
@@ -339,11 +339,11 @@ public class MainActivity extends AppCompatActivity implements fragmentBady.upda
             filters = new ArrayList<ScanFilter>();
             ScanFilter bleFilter = new ScanFilter.Builder().
                                         setServiceUuid(BluetoothLeService.UUID_MLC_CHAR).build();
-            ScanFilter bleFilterAddr = new ScanFilter.Builder().setDeviceAddress(DEV_ADDRESS).build();
+            //ScanFilter bleFilterAddr = new ScanFilter.Builder().setDeviceAddress(DEV_ADDRESS).build();
             ScanFilter bleFilterName = new ScanFilter.Builder().setDeviceName(DEV_NAME).build();
             //filters.add(bleFilter);
             filters.add(bleFilter);
-            filters.add(bleFilterAddr);
+            //filters.add(bleFilterAddr);
             filters.add(bleFilterName);
         }
         scanLeDevice(enable);
@@ -408,8 +408,8 @@ public class MainActivity extends AppCompatActivity implements fragmentBady.upda
             Log.d(TAG, "2 deviceAddr: " + device.getAddress());
         }
 
-        if (    device.getAddress().equalsIgnoreCase(DEV_ADDRESS) ||
-                device.getName().equalsIgnoreCase(DEV_ADDRESS) )
+        if (    /*device.getAddress().equalsIgnoreCase(DEV_ADDRESS) ||*/
+                device.getName().equalsIgnoreCase(DEV_NAME) )
         {
             final Intent intent = new Intent(BluetoothLeService.ACTION_CONNECT_REQUEST);
             intent.putExtra(BluetoothLeService.EXTRA_DATA, device.getAddress());
